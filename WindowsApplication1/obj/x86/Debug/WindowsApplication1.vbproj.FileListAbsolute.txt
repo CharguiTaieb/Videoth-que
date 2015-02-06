@@ -1,0 +1,60 @@
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.exe
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.xml
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.pdb
+C:\Users\darkdeath\Desktop\video\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.videotheque.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.AjoutFilm.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.clients.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.detailsfilm.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.EmpreinteFilm.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.ModifFilm.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Realisateurs.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.videotheque.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.acteur.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Exemplaire.resources
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.exe.config
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.exe.manifest
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.application
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.exe
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.pdb
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.xml
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.exe.manifest
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.application
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.exe
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.xml
+C:\Users\darkdeath\Desktop\videotheque\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.pdb
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.exe.config
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.exe
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.xml
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.pdb
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.exe.manifest
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.application
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.exe
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.pdb
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\bin\Debug\videotheque.xml
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.acteur.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.AjoutFilm.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.clients.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.detailsfilm.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.EmpreinteFilm.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Exemplaire.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Realisateurs.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.videotheque.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.exe.manifest
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\videotheque.application
+C:\Users\darkdeath\Desktop\videotheque alpha\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.ModiFilm.resources

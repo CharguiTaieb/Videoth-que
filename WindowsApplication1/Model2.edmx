@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="10.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="acter" EntityType="Model.Store.acter" store:Type="Tables" Schema="DARK" />
+          <EntitySet Name="Acteur" EntityType="Model.Store.Acteur" store:Type="Tables" Schema="DARK" />
+          <EntitySet Name="Client" EntityType="Model.Store.Client" store:Type="Tables" Schema="DARK" />
+          <EntitySet Name="Empreinte" EntityType="Model.Store.Empreinte" store:Type="Tables" Schema="DARK" />
+          <EntitySet Name="Exemplaire" EntityType="Model.Store.Exemplaire" store:Type="Tables" Schema="DARK" />
+          <EntitySet Name="Film" EntityType="Model.Store.Film" store:Type="Tables" Schema="DARK" />
+          <EntitySet Name="Realisateur" EntityType="Model.Store.Realisateur" store:Type="Tables" Schema="DARK" />
+          <AssociationSet Name="FK_ACTER_REFERENCE_ACTEUR" Association="Model.Store.FK_ACTER_REFERENCE_ACTEUR">
+            <End Role="Acteur" EntitySet="Acteur" />
+            <End Role="acter" EntitySet="acter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ACTER_REFERENCE_FILM" Association="Model.Store.FK_ACTER_REFERENCE_FILM">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="acter" EntitySet="acter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPREINT_REFERENCE_CLIENT" Association="Model.Store.FK_EMPREINT_REFERENCE_CLIENT">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Empreinte" EntitySet="Empreinte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPREINT_REFERENCE_EXEMPLAI" Association="Model.Store.FK_EMPREINT_REFERENCE_EXEMPLAI">
+            <End Role="Exemplaire" EntitySet="Exemplaire" />
+            <End Role="Empreinte" EntitySet="Empreinte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXEMPLAI_REFERENCE_FILM" Association="Model.Store.FK_EXEMPLAI_REFERENCE_FILM">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Exemplaire" EntitySet="Exemplaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FILM_REFERENCE_REALISAT" Association="Model.Store.FK_FILM_REFERENCE_REALISAT">
+            <End Role="Realisateur" EntitySet="Realisateur" />
+            <End Role="Film" EntitySet="Film" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="acter">
+          <Key>
+            <PropertyRef Name="idacter" />
+          </Key>
+          <Property Name="idacter" Type="number" Nullable="false" />
+          <Property Name="codeFilm" Type="number" />
+          <Property Name="numActeur" Type="number" />
+        </EntityType>
+        <EntityType Name="Acteur">
+          <Key>
+            <PropertyRef Name="numActeur" />
+          </Key>
+          <Property Name="numActeur" Type="number" Nullable="false" />
+          <Property Name="nom_prenom" Type="varchar2" MaxLength="100" />
+          <Property Name="pays" Type="varchar2" MaxLength="50" />
+          <Property Name="dateNaissance" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DARK.BIN$3Nd+6cpTSZGBfV7gTtU7AQ==$0' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DARK.BIN$r0Yrs+OrTG2uOebs9AoCXw==$0' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="idclient" />
+          </Key>
+          <Property Name="idclient" Type="number" Nullable="false" />
+          <Property Name="cin" Type="number" />
+          <Property Name="nom_prenom" Type="varchar2" MaxLength="50" />
+          <Property Name="dateNaissance" Type="date" />
+          <Property Name="adresse" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Empreinte">
+          <Key>
+            <PropertyRef Name="idpreinte" />
+          </Key>
+          <Property Name="idpreinte" Type="number" Nullable="false" />
+          <Property Name="idclient" Type="number" />
+          <Property Name="idxemplair" Type="number" />
+          <Property Name="dateEmpreint" Type="date" />
+          <Property Name="dateRetour" Type="date" />
+        </EntityType>
+        <EntityType Name="Exemplaire">
+          <Key>
+            <PropertyRef Name="idxemplair" />
+          </Key>
+          <Property Name="idxemplair" Type="number" Nullable="false" />
+          <Property Name="codeFilm" Type="number" />
+          <Property Name="typeSupp" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="codeFilm" />
+          </Key>
+          <Property Name="codeFilm" Type="number" Nullable="false" />
+          <Property Name="titre" Type="varchar2" MaxLength="254" />
+          <Property Name="anneeRealisation" Type="date" />
+          <Property Name="genre" Type="varchar2" MaxLength="254" />
+          <Property Name="idRealis" Type="number" />
+        </EntityType>
+        <EntityType Name="Realisateur">
+          <Key>
+            <PropertyRef Name="idRealis" />
+          </Key>
+          <Property Name="idRealis" Type="number" Nullable="false" />
+          <Property Name="nom_prenom" Type="varchar2" MaxLength="254" />
+          <Property Name="pays" Type="varchar2" MaxLength="50" />
+          <Property Name="dateNaissance" Type="date" />
+        </EntityType>
+        <Association Name="FK_ACTER_REFERENCE_ACTEUR">
+          <End Role="Acteur" Type="Model.Store.Acteur" Multiplicity="0..1" />
+          <End Role="acter" Type="Model.Store.acter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acteur">
+              <PropertyRef Name="numActeur" />
+            </Principal>
+            <Dependent Role="acter">
+              <PropertyRef Name="numActeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ACTER_REFERENCE_FILM">
+          <End Role="Film" Type="Model.Store.Film" Multiplicity="0..1" />
+          <End Role="acter" Type="Model.Store.acter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="codeFilm" />
+            </Principal>
+            <Dependent Role="acter">
+              <PropertyRef Name="codeFilm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPREINT_REFERENCE_CLIENT">
+          <End Role="Client" Type="Model.Store.Client" Multiplicity="0..1" />
+          <End Role="Empreinte" Type="Model.Store.Empreinte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="idclient" />
+            </Principal>
+            <Dependent Role="Empreinte">
+              <PropertyRef Name="idclient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPREINT_REFERENCE_EXEMPLAI">
+          <End Role="Exemplaire" Type="Model.Store.Exemplaire" Multiplicity="0..1" />
+          <End Role="Empreinte" Type="Model.Store.Empreinte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exemplaire">
+              <PropertyRef Name="idxemplair" />
+            </Principal>
+            <Dependent Role="Empreinte">
+              <PropertyRef Name="idxemplair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXEMPLAI_REFERENCE_FILM">
+          <End Role="Film" Type="Model.Store.Film" Multiplicity="0..1" />
+          <End Role="Exemplaire" Type="Model.Store.Exemplaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="codeFilm" />
+            </Principal>
+            <Dependent Role="Exemplaire">
+              <PropertyRef Name="codeFilm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FILM_REFERENCE_REALISAT">
+          <End Role="Realisateur" Type="Model.Store.Realisateur" Multiplicity="0..1" />
+          <End Role="Film" Type="Model.Store.Film" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Realisateur">
+              <PropertyRef Name="idRealis" />
+            </Principal>
+            <Dependent Role="Film">
+              <PropertyRef Name="idRealis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'DARK.BIN$eBOlBquLThe7lWQm8gDR4g==$0' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="BIN$eBOlBquLThe7lWQm8gDR4g==$0">
+        <Property Name="cin" Type="number" />
+        <Property Name="designation" Type="number" />
+        <Property Name="dateNaissance" Type="number" />
+        <Property Name="adresse" Type="number" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'DARK.BIN$hnRFdxiXTNuLCwrkJygTEg==$0' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="BIN$hnRFdxiXTNuLCwrkJygTEg==$0">
+        <Property Name="idpreinte" Type="number" />
+        <Property Name="idclient" Type="number" />
+        <Property Name="idxemplair" Type="number" />
+        <Property Name="dateEmpreint" Type="date" />
+        <Property Name="dateRetour" Type="date" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'DARK.BIN$mXOfhtg9TqW+tP6ZNGshwA==$0' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="BIN$mXOfhtg9TqW+tP6ZNGshwA==$0">
+        <Property Name="idpreinte" Type="number" />
+        <Property Name="idclient" Type="number" />
+        <Property Name="idxemplair" Type="number" />
+        <Property Name="dateEmpreint" Type="date" />
+        <Property Name="dateRetour" Type="date" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'DARK.BIN$T6z15v24S2utOAX+tPSWAQ==$0' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="BIN$T6z15v24S2utOAX+tPSWAQ==$0">
+        <Property Name="idacter" Type="number" />
+        <Property Name="codeFilm" Type="number" />
+        <Property Name="numActeur" Type="number" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'DARK.BIN$VGJv5bYGTcyZsujr4zPwSw==$0' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="BIN$VGJv5bYGTcyZsujr4zPwSw==$0">
+        <Property Name="idacter" Type="number" />
+        <Property Name="codeFilm" Type="number" />
+        <Property Name="numActeur" Type="number" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'DARK.BIN$W0XPd/t9S3SNZeCENbXOWA==$0' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="BIN$W0XPd/t9S3SNZeCENbXOWA==$0">
+        <Property Name="idpreinte" Type="number" />
+        <Property Name="idclient" Type="number" />
+        <Property Name="idxemplair" Type="number" />
+        <Property Name="dateEmpreint" Type="date" />
+        <Property Name="dateRetour" Type="date" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'DARK.BIN$y277ycVhRiybrSlJvwvzWA==$0' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="BIN$y277ycVhRiybrSlJvwvzWA==$0">
+        <Property Name="numEmpreint" Type="number" />
+        <Property Name="cin" Type="number" />
+        <Property Name="numexmpl" Type="number" />
+        <Property Name="dateEmpreint" Type="date" />
+        <Property Name="dateRetour" Type="date" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'DARK.HTMLDB_PLAN_TABLE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="HTMLDB_PLAN_TABLE">
+        <Property Name="STATEMENT_ID" Type="varchar2" MaxLength="30" />
+        <Property Name="PLAN_ID" Type="number" />
+        <Property Name="TIMESTAMP" Type="date" />
+        <Property Name="REMARKS" Type="varchar2" />
+        <Property Name="OPERATION" Type="varchar2" MaxLength="30" />
+        <Property Name="OPTIONS" Type="varchar2" MaxLength="255" />
+        <Property Name="OBJECT_NODE" Type="varchar2" MaxLength="128" />
+        <Property Name="OBJECT_OWNER" Type="varchar2" MaxLength="30" />
+        <Property Name="OBJECT_NAME" Type="varchar2" MaxLength="30" />
+        <Property Name="OBJECT_ALIAS" Type="varchar2" MaxLength="65" />
+        <Property Name="OBJECT_INSTANCE" Type="number" />
+        <Property Name="OBJECT_TYPE" Type="varchar2" MaxLength="30" />
+        <Property Name="OPTIMIZER" Type="varchar2" MaxLength="255" />
+        <Property Name="SEARCH_COLUMNS" Type="number" />
+        <Property Name="ID" Type="number" />
+        <Property Name="PARENT_ID" Type="number" />
+        <Property Name="DEPTH" Type="number" />
+        <Property Name="POSITION" Type="number" />
+        <Property Name="COST" Type="number" />
+        <Property Name="CARDINALITY" Type="number" />
+        <Property Name="BYTES" Type="number" />
+        <Property Name="OTHER_TAG" Type="varchar2" MaxLength="255" />
+        <Property Name="PARTITION_START" Type="varchar2" MaxLength="255" />
+        <Property Name="PARTITION_STOP" Type="varchar2" MaxLength="255" />
+        <Property Name="PARTITION_ID" Type="number" />
+        <Property Name="OTHER" Type="long" />
+        <Property Name="DISTRIBUTION" Type="varchar2" MaxLength="30" />
+        <Property Name="CPU_COST" Type="number" />
+        <Property Name="IO_COST" Type="number" />
+        <Property Name="TEMP_SPACE" Type="number" />
+        <Property Name="ACCESS_PREDICATES" Type="varchar2" />
+        <Property Name="FILTER_PREDICATES" Type="varchar2" />
+        <Property Name="PROJECTION" Type="varchar2" />
+        <Property Name="TIME" Type="number" />
+        <Property Name="QBLOCK_NAME" Type="varchar2" MaxLength="30" />
+      </EntityType>-->
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="acter" EntityType="Model.acter" />
+          <EntitySet Name="Acteur" EntityType="Model.Acteur" />
+          <EntitySet Name="Client" EntityType="Model.Client" />
+          <EntitySet Name="Empreinte" EntityType="Model.Empreinte" />
+          <EntitySet Name="Exemplaire" EntityType="Model.Exemplaire" />
+          <EntitySet Name="Film" EntityType="Model.Film" />
+          <EntitySet Name="Realisateur" EntityType="Model.Realisateur" />
+          <AssociationSet Name="FK_ACTER_REFERENCE_ACTEUR" Association="Model.FK_ACTER_REFERENCE_ACTEUR">
+            <End Role="Acteur" EntitySet="Acteur" />
+            <End Role="acter" EntitySet="acter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ACTER_REFERENCE_FILM" Association="Model.FK_ACTER_REFERENCE_FILM">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="acter" EntitySet="acter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPREINT_REFERENCE_CLIENT" Association="Model.FK_EMPREINT_REFERENCE_CLIENT">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Empreinte" EntitySet="Empreinte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPREINT_REFERENCE_EXEMPLAI" Association="Model.FK_EMPREINT_REFERENCE_EXEMPLAI">
+            <End Role="Exemplaire" EntitySet="Exemplaire" />
+            <End Role="Empreinte" EntitySet="Empreinte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXEMPLAI_REFERENCE_FILM" Association="Model.FK_EXEMPLAI_REFERENCE_FILM">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Exemplaire" EntitySet="Exemplaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FILM_REFERENCE_REALISAT" Association="Model.FK_FILM_REFERENCE_REALISAT">
+            <End Role="Realisateur" EntitySet="Realisateur" />
+            <End Role="Film" EntitySet="Film" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="acter">
+          <Key>
+            <PropertyRef Name="idacter" />
+          </Key>
+          <Property Name="idacter" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="codeFilm" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="numActeur" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="Acteur" Relationship="Model.FK_ACTER_REFERENCE_ACTEUR" FromRole="acter" ToRole="Acteur" />
+          <NavigationProperty Name="Film" Relationship="Model.FK_ACTER_REFERENCE_FILM" FromRole="acter" ToRole="Film" />
+        </EntityType>
+        <EntityType Name="Acteur">
+          <Key>
+            <PropertyRef Name="numActeur" />
+          </Key>
+          <Property Name="numActeur" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="nom_prenom" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="pays" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="dateNaissance" Type="DateTime" />
+          <NavigationProperty Name="acter" Relationship="Model.FK_ACTER_REFERENCE_ACTEUR" FromRole="Acteur" ToRole="acter" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="idclient" />
+          </Key>
+          <Property Name="idclient" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="cin" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="nom_prenom" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="dateNaissance" Type="DateTime" />
+          <Property Name="adresse" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Empreinte" Relationship="Model.FK_EMPREINT_REFERENCE_CLIENT" FromRole="Client" ToRole="Empreinte" />
+        </EntityType>
+        <EntityType Name="Empreinte">
+          <Key>
+            <PropertyRef Name="idpreinte" />
+          </Key>
+          <Property Name="idpreinte" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="idclient" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="idxemplair" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="dateEmpreint" Type="DateTime" />
+          <Property Name="dateRetour" Type="DateTime" />
+          <NavigationProperty Name="Client" Relationship="Model.FK_EMPREINT_REFERENCE_CLIENT" FromRole="Empreinte" ToRole="Client" />
+          <NavigationProperty Name="Exemplaire" Relationship="Model.FK_EMPREINT_REFERENCE_EXEMPLAI" FromRole="Empreinte" ToRole="Exemplaire" />
+        </EntityType>
+        <EntityType Name="Exemplaire">
+          <Key>
+            <PropertyRef Name="idxemplair" />
+          </Key>
+          <Property Name="idxemplair" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="codeFilm" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="typeSupp" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="Empreinte" Relationship="Model.FK_EMPREINT_REFERENCE_EXEMPLAI" FromRole="Exemplaire" ToRole="Empreinte" />
+          <NavigationProperty Name="Film" Relationship="Model.FK_EXEMPLAI_REFERENCE_FILM" FromRole="Exemplaire" ToRole="Film" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="codeFilm" />
+          </Key>
+          <Property Name="codeFilm" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="titre" Type="String" MaxLength="254" Unicode="false" FixedLength="false" />
+          <Property Name="anneeRealisation" Type="DateTime" />
+          <Property Name="genre" Type="String" MaxLength="254" Unicode="false" FixedLength="false" />
+          <Property Name="idRealis" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="acter" Relationship="Model.FK_ACTER_REFERENCE_FILM" FromRole="Film" ToRole="acter" />
+          <NavigationProperty Name="Exemplaire" Relationship="Model.FK_EXEMPLAI_REFERENCE_FILM" FromRole="Film" ToRole="Exemplaire" />
+          <NavigationProperty Name="Realisateur" Relationship="Model.FK_FILM_REFERENCE_REALISAT" FromRole="Film" ToRole="Realisateur" />
+        </EntityType>
+        <EntityType Name="Realisateur">
+          <Key>
+            <PropertyRef Name="idRealis" />
+          </Key>
+          <Property Name="idRealis" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="nom_prenom" Type="String" MaxLength="254" Unicode="false" FixedLength="false" />
+          <Property Name="pays" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="dateNaissance" Type="DateTime" />
+          <NavigationProperty Name="Film" Relationship="Model.FK_FILM_REFERENCE_REALISAT" FromRole="Realisateur" ToRole="Film" />
+        </EntityType>
+        <Association Name="FK_ACTER_REFERENCE_ACTEUR">
+          <End Role="Acteur" Type="Model.Acteur" Multiplicity="0..1" />
+          <End Role="acter" Type="Model.acter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acteur">
+              <PropertyRef Name="numActeur" />
+            </Principal>
+            <Dependent Role="acter">
+              <PropertyRef Name="numActeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ACTER_REFERENCE_FILM">
+          <End Role="Film" Type="Model.Film" Multiplicity="0..1" />
+          <End Role="acter" Type="Model.acter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="codeFilm" />
+            </Principal>
+            <Dependent Role="acter">
+              <PropertyRef Name="codeFilm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPREINT_REFERENCE_CLIENT">
+          <End Role="Client" Type="Model.Client" Multiplicity="0..1" />
+          <End Role="Empreinte" Type="Model.Empreinte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="idclient" />
+            </Principal>
+            <Dependent Role="Empreinte">
+              <PropertyRef Name="idclient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPREINT_REFERENCE_EXEMPLAI">
+          <End Role="Exemplaire" Type="Model.Exemplaire" Multiplicity="0..1" />
+          <End Role="Empreinte" Type="Model.Empreinte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exemplaire">
+              <PropertyRef Name="idxemplair" />
+            </Principal>
+            <Dependent Role="Empreinte">
+              <PropertyRef Name="idxemplair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXEMPLAI_REFERENCE_FILM">
+          <End Role="Film" Type="Model.Film" Multiplicity="0..1" />
+          <End Role="Exemplaire" Type="Model.Exemplaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="codeFilm" />
+            </Principal>
+            <Dependent Role="Exemplaire">
+              <PropertyRef Name="codeFilm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FILM_REFERENCE_REALISAT">
+          <End Role="Realisateur" Type="Model.Realisateur" Multiplicity="0..1" />
+          <End Role="Film" Type="Model.Film" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Realisateur">
+              <PropertyRef Name="idRealis" />
+            </Principal>
+            <Dependent Role="Film">
+              <PropertyRef Name="idRealis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="acter"><EntityTypeMapping TypeName="Model.acter"><MappingFragment StoreEntitySet="acter">
+            <ScalarProperty Name="idacter" ColumnName="idacter" />
+            <ScalarProperty Name="codeFilm" ColumnName="codeFilm" />
+            <ScalarProperty Name="numActeur" ColumnName="numActeur" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Acteur"><EntityTypeMapping TypeName="Model.Acteur"><MappingFragment StoreEntitySet="Acteur">
+            <ScalarProperty Name="numActeur" ColumnName="numActeur" />
+            <ScalarProperty Name="nom_prenom" ColumnName="nom_prenom" />
+            <ScalarProperty Name="pays" ColumnName="pays" />
+            <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Client"><EntityTypeMapping TypeName="Model.Client"><MappingFragment StoreEntitySet="Client">
+            <ScalarProperty Name="idclient" ColumnName="idclient" />
+            <ScalarProperty Name="cin" ColumnName="cin" />
+            <ScalarProperty Name="nom_prenom" ColumnName="nom_prenom" />
+            <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+            <ScalarProperty Name="adresse" ColumnName="adresse" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Empreinte"><EntityTypeMapping TypeName="Model.Empreinte"><MappingFragment StoreEntitySet="Empreinte">
+            <ScalarProperty Name="idpreinte" ColumnName="idpreinte" />
+            <ScalarProperty Name="idclient" ColumnName="idclient" />
+            <ScalarProperty Name="idxemplair" ColumnName="idxemplair" />
+            <ScalarProperty Name="dateEmpreint" ColumnName="dateEmpreint" />
+            <ScalarProperty Name="dateRetour" ColumnName="dateRetour" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Exemplaire"><EntityTypeMapping TypeName="Model.Exemplaire"><MappingFragment StoreEntitySet="Exemplaire">
+            <ScalarProperty Name="idxemplair" ColumnName="idxemplair" />
+            <ScalarProperty Name="codeFilm" ColumnName="codeFilm" />
+            <ScalarProperty Name="typeSupp" ColumnName="typeSupp" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Film"><EntityTypeMapping TypeName="Model.Film"><MappingFragment StoreEntitySet="Film">
+            <ScalarProperty Name="codeFilm" ColumnName="codeFilm" />
+            <ScalarProperty Name="titre" ColumnName="titre" />
+            <ScalarProperty Name="anneeRealisation" ColumnName="anneeRealisation" />
+            <ScalarProperty Name="genre" ColumnName="genre" />
+            <ScalarProperty Name="idRealis" ColumnName="idRealis" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Realisateur"><EntityTypeMapping TypeName="Model.Realisateur"><MappingFragment StoreEntitySet="Realisateur">
+            <ScalarProperty Name="idRealis" ColumnName="idRealis" />
+            <ScalarProperty Name="nom_prenom" ColumnName="nom_prenom" />
+            <ScalarProperty Name="pays" ColumnName="pays" />
+            <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model2">
+        <EntityTypeShape EntityType="Model.acter" Width="1.5" PointX="5.25" PointY="2.625" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Acteur" Width="1.5" PointX="5" PointY="5.25" Height="1.9802864583333344" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="7.5" PointY="2.5" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Empreinte" Width="1.5" PointX="7.875" PointY="5.5" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Exemplaire" Width="1.5" PointX="2.625" PointY="5.875" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Film" Width="1.5" PointX="3" PointY="2.375" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Realisateur" Width="1.5" PointX="0.75" PointY="2.625" Height="1.9802864583333277" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_ACTER_REFERENCE_ACTEUR" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.875" PointY="5.25" />
+          <ConnectorPoint PointX="5.875" PointY="4.6052864583333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_ACTER_REFERENCE_FILM" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.0575716145833334" />
+          <ConnectorPoint PointX="5.25" PointY="3.0575716145833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_EMPREINT_REFERENCE_CLIENT" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.4375" PointY="4.6725878906250031" />
+          <ConnectorPoint PointX="8.4375" PointY="5.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_EMPREINT_REFERENCE_EXEMPLAI" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.125" PointY="7.5740364583333371" />
+          <ConnectorPoint PointX="7.875" PointY="7.5740364583333371" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_EXEMPLAI_REFERENCE_FILM" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.5625" PointY="4.9321907552083317" />
+          <ConnectorPoint PointX="3.5625" PointY="5.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FILM_REFERENCE_REALISAT" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.6151432291666641" />
+          <ConnectorPoint PointX="3" PointY="3.6151432291666641" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
